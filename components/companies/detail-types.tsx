@@ -1,9 +1,9 @@
 "use client";
 
-import { DetailType } from '@/types/company';
-import { X } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Button } from '../ui/button';
+import { DetailType } from "@/types/company";
+import { X, Terminal } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Button } from "../ui/button";
 
 interface DetailTypesProps {
   types: DetailType[];
@@ -12,13 +12,26 @@ interface DetailTypesProps {
   onClose: () => void;
 }
 
-export function DetailTypes({ types, selectedType, onSelect, onClose }: DetailTypesProps) {
+export function DetailTypes({
+  types,
+  selectedType,
+  onSelect,
+  onClose,
+}: DetailTypesProps) {
   return (
-    <div className="w-64 border-r border-neutral-800 h-[calc(100vh-8rem)] overflow-y-auto">
+    <div className="w-64 border-r border-orange-500/20 h-[calc(100vh-8rem)] overflow-y-auto bg-black/95">
       <div className="p-4">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-lg font-semibold text-white">Details</h2>
-          <Button variant="ghost" size="icon" onClick={onClose}>
+          <div className="flex items-center gap-2">
+            <Terminal className="h-4 w-4 text-orange-500" />
+            <h2 className="text-lg font-mono text-orange-500">./details</h2>
+          </div>
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={onClose}
+            className="text-orange-500 hover:text-orange-400 hover:bg-orange-500/10 h-7 w-7"
+          >
             <X className="h-4 w-4" />
           </Button>
         </div>
@@ -28,10 +41,10 @@ export function DetailTypes({ types, selectedType, onSelect, onClose }: DetailTy
               key={type}
               onClick={() => onSelect(type)}
               className={cn(
-                "w-full p-3 rounded-lg text-left transition-colors",
+                "w-full p-3 rounded-sm text-left transition-colors font-mono border border-transparent",
                 selectedType === type
-                  ? "bg-neutral-800 text-white"
-                  : "text-neutral-400 hover:bg-neutral-800 hover:text-white"
+                  ? "bg-orange-500/10 text-orange-400 border-orange-500/50"
+                  : "text-orange-400/70 hover:bg-orange-500/5 hover:text-orange-400"
               )}
             >
               {type}

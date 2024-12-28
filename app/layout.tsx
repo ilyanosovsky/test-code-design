@@ -19,7 +19,7 @@ export default function RootLayout({
       <body className={sourceCodePro.className}>
         <div className="flex min-h-screen bg-black">
           <Sidebar />
-          <main className="flex-1 p-4">{children}</main>
+          <main className="flex-1">{children}</main>
         </div>
       </body>
     </html>

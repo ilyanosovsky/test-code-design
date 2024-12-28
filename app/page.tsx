@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Plus } from "lucide-react";
 import { CompanyList } from "@/components/companies/company-list";
@@ -14,19 +14,21 @@ export default function Home() {
   const [selectedType, setSelectedType] = useState<DetailType | null>(null);
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <div className="flex justify-between items-center mb-8">
+    <div className="max-w-7xl mx-auto bg-black">
+      <div className="flex justify-between items-center mb-8 p-4 border-b border-orange-500/20">
         <div>
-          <h1 className="text-2xl font-semibold text-white">Companies</h1>
-          <p className="text-neutral-400 mt-1">Manage companies you are following</p>
+          <h1 className="text-2xl font-mono text-orange-500">~/companies</h1>
+          <p className="text-orange-400/60 mt-1 font-mono text-sm">
+            $ manage-companies --list-all
+          </p>
         </div>
-        <Button className="bg-orange-500 hover:bg-orange-600">
+        <Button className="bg-orange-500 hover:bg-orange-600 font-mono text-black">
           <Plus className="mr-2 h-4 w-4" />
-          Add Company
+          new_company.sh
         </Button>
       </div>
-      
-      <div className="flex gap-6">
+
+      <div className="flex gap-1">
         <CompanyList
           companies={companies}
           selectedId={selectedCompany?.id}
@@ -35,7 +37,7 @@ export default function Home() {
             setSelectedType(null);
           }}
         />
-        
+
         {selectedCompany && (
           <DetailTypes
             types={detailTypes}
@@ -47,13 +49,15 @@ export default function Home() {
             }}
           />
         )}
-        
-        {selectedCompany && selectedType && companyDetails[selectedCompany.id] && (
-          <DetailContent
-            content={companyDetails[selectedCompany.id][selectedType]}
-            onClose={() => setSelectedType(null)}
-          />
-        )}
+
+        {selectedCompany &&
+          selectedType &&
+          companyDetails[selectedCompany.id] && (
+            <DetailContent
+              content={companyDetails[selectedCompany.id][selectedType]}
+              onClose={() => setSelectedType(null)}
+            />
+          )}
       </div>
     </div>
   );
