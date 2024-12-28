@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { Company } from "@/types/company";
 import { cn } from "@/lib/utils";
 import { Terminal } from "lucide-react";
