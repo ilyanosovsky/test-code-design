@@ -26,7 +26,7 @@ export default function Home() {
         </Button>
       </div>
       
-      <div className="flex gap-6 bg-neutral-900/50 rounded-lg p-6">
+      <div className="flex gap-6">
         <CompanyList
           companies={companies}
           selectedId={selectedCompany?.id}

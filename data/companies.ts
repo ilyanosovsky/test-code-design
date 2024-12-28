@@ -1,4 +1,6 @@
-export const companies = [
+import { DetailType, Company } from '../types/company';
+
+export const companies: Company[] = [
   {
     id: '1',
     name: 'Vercel',
@@ -59,7 +61,7 @@ export const companies = [
     logo: '/company-logos/raycast.png',
     description: 'Productivity tool'
   }
-] as const;
+];
 
 export const detailTypes: DetailType[] = [
   'Summary',
